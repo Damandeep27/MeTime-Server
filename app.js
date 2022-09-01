@@ -17,13 +17,7 @@ connected
     console.log("Connected to database successfully!");
     app.set('port',process.env.PORT||8080);
     const server = app.listen(app.settings.port, ()=>console.log(`Listening on port ${process.env.PORT}`));
-    const io=socket(server,{
-        cors:{
-            origin:"https://me--time.herokuapp.com",
-            credentials:true,
-        }
-    
-    })
+    const io=socket(server);
     global.onlineUsers=new Map();
     io.on("connection",(socket)=>{
         global.chatSocket=socket;
