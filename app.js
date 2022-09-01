@@ -17,7 +17,12 @@ connected
     console.log("Connected to database successfully!");
     app.set('port',process.env.PORT||8080);
     const server = app.listen(app.settings.port, ()=>console.log(`Listening on port ${process.env.PORT}`));
-    const io=socket(server);
+    const io=socket(server,{
+            cors:{
+            origin:"https://me-time.vercel.app/",
+            credentials:true,
+        }
+    });
     global.onlineUsers=new Map();
     io.on("connection",(socket)=>{
         global.chatSocket=socket;
