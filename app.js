@@ -19,7 +19,7 @@ connected
     const server = app.listen(app.settings.port, ()=>console.log(`Listening on port ${process.env.PORT}`));
     const io=socket(server,{
         cors:{
-            origin:"http://localhost:3000",
+            origin:"https://me--time.herokuapp.com",
             credentials:true,
         }
     
